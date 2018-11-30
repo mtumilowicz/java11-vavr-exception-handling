@@ -24,7 +24,7 @@ that we cannot modify. What is more - `find` method throws
 1. in our application we have also a repository that:
     * has `find` method that will lookup into our database
     * has `backupLookup` method that will call `find` method
-    from repository mentioned above (`LegacyBackupRepository`)
+    from repository mentioned above (`LegacyBackupUserRepository`)
     * has `findOrBackup` method that will try to lookup in
     our database and:
         * if user is found returns it
