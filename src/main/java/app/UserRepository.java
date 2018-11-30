@@ -6,20 +6,20 @@ import io.vavr.collection.List;
 import io.vavr.control.Either;
 import io.vavr.control.Option;
 import io.vavr.control.Try;
-import outer.LegacyBackupRepository;
+import outer.LegacyBackupUserRepository;
 
 /**
  * Created by mtumilowicz on 2018-11-30.
  */
 public class UserRepository {
-    private final LegacyBackupRepository legacyBackupRepository = new LegacyBackupRepository();
+    private final LegacyBackupUserRepository legacyBackupUserRepository = new LegacyBackupUserRepository();
 
     public Option<User> find(int id) {
         return MockDatabase.users.find(User.withId(id));
     }
 
     public Try<User> backupLookup(int id) {
-        return Try.of(() -> legacyBackupRepository.find(id));
+        return Try.of(() -> legacyBackupUserRepository.find(id));
     }
 
     public Either<List<DatabaseUserFindReport>, User> findOrBackup(int id) {

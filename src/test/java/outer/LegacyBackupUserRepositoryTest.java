@@ -9,9 +9,9 @@ import static org.junit.Assert.*;
 /**
  * Created by mtumilowicz on 2018-11-30.
  */
-public class LegacyBackupRepositoryTest {
+public class LegacyBackupUserRepositoryTest {
 
-    private LegacyBackupRepository repository = new LegacyBackupRepository();
+    private LegacyBackupUserRepository repository = new LegacyBackupUserRepository();
 
     @Test
     public void find_found() {
