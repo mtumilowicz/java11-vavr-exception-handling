@@ -10,8 +10,8 @@ Please refer my other github projects:
 * https://github.com/mtumilowicz/java11-vavr-either
 
 # project description
-1. suppose we have outer repository (to backup database) 
-that we cannot modify and find method throws 
+1. Suppose we have outer repository (to backup database) 
+that we cannot modify. What is more - `find` method throws 
 `EntityNotFoundException`:
     ```
     public class LegacyBackupUserRepository {
