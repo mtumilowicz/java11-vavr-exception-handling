@@ -1,52 +1,41 @@
 package app;
 
+import app.report.DatabaseUserFindReport;
 import io.vavr.collection.List;
 import io.vavr.control.Either;
 import io.vavr.control.Option;
 import io.vavr.control.Try;
-import lombok.Value;
 import outer.LegacyBackupRepository;
 
 /**
  * Created by mtumilowicz on 2018-11-30.
  */
 public class Repository {
-    LegacyBackupRepository legacyBackupRepository = new LegacyBackupRepository();
+    private final LegacyBackupRepository legacyBackupRepository = new LegacyBackupRepository();
 
-    Option<User> find(int id) {
+    public Option<User> find(int id) {
         return MockDatabase.users.find(User.withId(id));
     }
 
-    Try<User> backupLookup(int id) {
-        return Try.of(() -> legacyBackupRepository.backupFind(id));
+    public Try<User> backupLookup(int id) {
+        return Try.of(() -> legacyBackupRepository.find(id));
     }
 
-    Either<List<DatabaseUserFindReport>, User> findOrBackup(int id) {
+    public Either<List<DatabaseUserFindReport>, User> findOrBackup(int id) {
         Option<User> normalUser = find(id);
         if (normalUser.isDefined()) {
             return Either.right(normalUser.get());
         }
+        
         Try<User> backupUser = backupLookup(id);
         if (backupUser.isSuccess()) {
             return Either.right(backupUser.get());
         }
-        return Either.left(List.of(new DatabaseUserFindReport(id, DatabaseType.NORMAL),
-                new DatabaseUserFindReport(id, DatabaseType.BACKUP)));
+        
+        return Either.left(List.of(
+                DatabaseUserFindReport.normal(id),
+                DatabaseUserFindReport.backup(id)
+        ));
 
-    }
-
-    @Value
-    class DatabaseUserFindReport {
-        int id;
-        DatabaseType type;
-
-        DatabaseUserFindReport(int id, DatabaseType type) {
-            this.id = id;
-            this.type = type;
-        }
-    }
-
-    enum DatabaseType {
-        NORMAL, BACKUP;
     }
 }
