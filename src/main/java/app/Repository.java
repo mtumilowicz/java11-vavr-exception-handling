@@ -1,6 +1,7 @@
 package app;
 
-import app.report.DatabaseUserFindReport;
+import app.database.MockDatabase;
+import app.database.report.DatabaseUserFindReport;
 import io.vavr.collection.List;
 import io.vavr.control.Either;
 import io.vavr.control.Option;

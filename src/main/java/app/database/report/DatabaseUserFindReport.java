@@ -1,4 +1,4 @@
-package app.report;
+package app.database.report;
 
 import lombok.Value;
 

@@ -1,4 +1,4 @@
-package outer;
+package outer.database;
 
 import app.User;
 import io.vavr.collection.List;

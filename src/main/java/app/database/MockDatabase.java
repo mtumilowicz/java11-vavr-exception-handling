@@ -1,5 +1,6 @@
-package app;
+package app.database;
 
+import app.User;
 import io.vavr.collection.List;
 
 /**
