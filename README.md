@@ -61,7 +61,7 @@ that we cannot modify and find method throws
         
         }
         ```
-        **summary**: we return user if found or report of
-        database that we looked-up into.
+        **summary**: we return user if found otherwise list
+        databases that we looked-up into.
 # tests
 We provide tests for mentioned above functionality.
