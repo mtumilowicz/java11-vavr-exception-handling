@@ -11,7 +11,7 @@ import outer.LegacyBackupRepository;
 /**
  * Created by mtumilowicz on 2018-11-30.
  */
-public class Repository {
+public class UserRepository {
     private final LegacyBackupRepository legacyBackupRepository = new LegacyBackupRepository();
 
     public Option<User> find(int id) {
