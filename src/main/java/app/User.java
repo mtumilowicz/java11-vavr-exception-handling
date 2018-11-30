@@ -12,8 +12,6 @@ import java.util.function.Predicate;
 @Builder
 public class User {
     int id;
-    String name;
-    String surname;
     
     public boolean hasId(int id) {
         return this.id == id;
