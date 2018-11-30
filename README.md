@@ -28,7 +28,7 @@ that we cannot modify. What is more - `find` method throws
     * has `findOrBackup` method that will try to lookup in
     our database and:
         * if user is found returns it
-        * if user is not found lookup in backup database
+        * if user is not found - try to lookup in backup database
 1. we want to model our `UserRepository` in a right way, so:
     * `Option` is perfect for modelling existence:
         ```
