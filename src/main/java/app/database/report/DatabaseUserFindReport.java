@@ -4,11 +4,11 @@ import lombok.Value;
 
 @Value
 public class DatabaseUserFindReport {
-    int id;
+    int userId;
     DatabaseType type;
 
-    private DatabaseUserFindReport(int id, DatabaseType type) {
-        this.id = id;
+    private DatabaseUserFindReport(int userId, DatabaseType type) {
+        this.userId = userId;
         this.type = type;
     }
     

@@ -14,7 +14,7 @@ public class DatabaseUserFindReportTest {
     public void normal() {
         DatabaseUserFindReport report = DatabaseUserFindReport.normal(1);
         
-        assertThat(report.getId(), is(1));
+        assertThat(report.getUserId(), is(1));
         assertThat(report.getType(), is(DatabaseType.NORMAL));
     }
 
@@ -22,7 +22,7 @@ public class DatabaseUserFindReportTest {
     public void backup() {
         DatabaseUserFindReport report = DatabaseUserFindReport.backup(1);
 
-        assertThat(report.getId(), is(1));
+        assertThat(report.getUserId(), is(1));
         assertThat(report.getType(), is(DatabaseType.BACKUP));
     }
 }
