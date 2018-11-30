@@ -55,7 +55,7 @@ public class UserRepositoryTest {
         Either<List<DatabaseUserFindReport>, User> user = userRepository.findOrBackup(2);
 
         assertTrue(user.isRight());
-        assertThat(user.get().getId(), is(1));
+        assertThat(user.get().getId(), is(2));
     }
 
     @Test
