@@ -1,3 +1,6 @@
+package outer;
+
+import app.User;
 import io.vavr.collection.List;
 
 /**

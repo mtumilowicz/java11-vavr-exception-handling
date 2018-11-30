@@ -1,8 +1,11 @@
+package app;
+
 import io.vavr.collection.List;
 import io.vavr.control.Either;
 import io.vavr.control.Option;
 import io.vavr.control.Try;
 import lombok.Value;
+import outer.LegacyBackupRepository;
 
 /**
  * Created by mtumilowicz on 2018-11-30.
