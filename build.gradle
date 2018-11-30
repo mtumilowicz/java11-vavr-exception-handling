@@ -1,11 +1,16 @@
 plugins {
     id 'java'
+    id 'io.franzbecker.gradle-lombok' version '1.14'
 }
 
 group 'java11-vavr-exception-handling'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 11
+
+lombok {
+    version = '1.18.4'
+}
 
 repositories {
     mavenCentral()
