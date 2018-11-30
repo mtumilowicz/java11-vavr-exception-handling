@@ -12,14 +12,14 @@ Please refer my other github projects:
 that we cannot modify and find method throws 
 `EntityNotFoundException`:
     ```
-    public class LegacyBackupRepository {
+    public class LegacyBackupUserRepository {
         User find(int id) {
             return MockBackupDatabase.users.find(User.withId(id))
                     .getOrElseThrow(EntityNotFoundException::new);
         }
     }
     ```
-1. in our application we have repository that:
+1. in our application we have also a repository that:
     * has `find` method that will lookup into our database
     * has `backupLookup` method that will call `find` method
     from repository mentioned above (`LegacyBackupRepository`)
@@ -27,7 +27,7 @@ that we cannot modify and find method throws
     our database and:
         * if user is found returns it
         * if user is not found lookup in backup database
-1. we want to model our `Repository` in a right way, so:
+1. we want to model our `UserRepository` in a right way, so:
     * `Option` is perfect for modelling existence:
         ```
         Option<User> find(int id) {
@@ -38,7 +38,7 @@ that we cannot modify and find method throws
     that throws exceptions
         ```
         Try<User> backupLookup(int id) {
-            return Try.of(() -> legacyBackupRepository.find(id));
+            return Try.of(() -> legacyBackupUserRepository.find(id));
         }
         ```
     * `Either` is perfect as a tailored error container
