@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/mtumilowicz/java11-vavr-exception-handling.svg?branch=master)](https://travis-ci.com/mtumilowicz/java11-vavr-exception-handling)
+
 # java11-vavr-exception-handling
 Simple project to show how to handle exceptions using vavr.
 
